@@ -6,14 +6,13 @@ app.controller('repeatController', function ($scope, $location, $http) {
             $scope.repeatResult = 'Ожидание';
             $http.post('/repeat/next', {wordLanguageId: 2}).then(function successCallback(response) {
                 $scope.curWord = response.data;
-                $scope.word = $scope.curWord.data;
                 $scope.translations = $scope.curWord.translations;
             }, function errorCallback(response) {
                 console.log("error");
             });
     };
 
-    $scope.checkAnswer = function (translation, word) {
+    $scope.checkAnswer = function (translation) {
         for (var i = 0; i < $scope.translations.length; i++) {
             if ($scope.translations[i].data == translation) {
                 $scope.result = '1';

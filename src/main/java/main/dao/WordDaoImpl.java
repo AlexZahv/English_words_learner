@@ -30,7 +30,6 @@ public class WordDaoImpl implements Dao<Word> {
     private static String DELETE_JOIN_QUERY = "delete from word_join where word_id=? or translation_id=?";
     private static String DELETE_QUERY = "delete from word where id=?";
     private static String SELECT_ALL_QUERY = "select w.id,w.data,w.language_id,w.right_answers_count from word w where w.language_id=? ORDER BY RANDOM() limit ?";
-    private static String SELECT_RANDOM_QUERY = "select w.id,w.data,w.language_id,w.right_answers_count from word w where w.language_id=? ORDER BY RANDOM() limit ?";
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -121,7 +120,7 @@ public class WordDaoImpl implements Dao<Word> {
 
     @Override
     public List<Word> getRandom(Word word, int count) {
-        List<Word> list = jdbcTemplate.query(SELECT_ALL_QUERY , new Object[]{word.getLanguageId(), count}, new WordMapper());
+        List<Word> list = jdbcTemplate.query(SELECT_ALL_QUERY, new Object[]{word.getLanguageId(), count}, new WordMapper());
         if (list != null) {
             if (count == 1)
                 list.get(0).setTranslations(getTranslationsList(list.get(0)));

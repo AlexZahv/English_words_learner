@@ -21,6 +21,10 @@
             </div>
         </div>
         <hr>
+        <div data-ng-class="{'wordslearner-success-panel': result=='1','wordslearner-alert-panel': result=='-1','wordslearner-neutral-panel':result=='0'}">
+            {{repeatResult}}
+        </div>
+        <hr>
         <div class="wordslearner-body-play-results">
             <div class="wordslearner-body-results-title">
                 Текущая статистика

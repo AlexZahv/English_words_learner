@@ -1,7 +1,6 @@
 package main.services;
 
 import main.dao.Dao;
-import main.entities.TransferObj;
 import main.entities.Word;
 import main.utils.WordsLearnerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,13 +60,13 @@ public class WordsLearnerServiceImpl {
         Word word = new Word();
         word.setLanguageId(transferObj.getWordLanguageId());
 
-        return wordDao.getRandom(word,1).get(0);
+        return wordDao.getRandom(word, 1).get(0);
     }
 
-    public List<Word> getWordForPlay(TransferObj transferObj){
+    public List<Word> getWordForPlay(TransferObj transferObj) {
         Word word = new Word();
-        word.setLanguageId(transferObj.getWordLanguageId());
-        return wordDao.getRandom(word,3);
+        word.setLanguageId(transferObj.getTranslationLanguageId());
+        return wordDao.getRandom(word, 3);
     }
 
 }
