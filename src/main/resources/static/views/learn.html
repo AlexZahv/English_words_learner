@@ -1,0 +1,26 @@
+<div class="wordslearner-body-learn" data-ng-controller="learnController">
+    <div class="wordslearner-body-header">
+        Запоминаем новое слово
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-5">
+                <label for="word" class="wordslearner-body-label">Слово:</label>
+                <textarea class="form-control" rows="5" id="word" style="resize:none" ng-model="word"></textarea>
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-5">
+                <label for="translation" class="wordslearner-body-label">Перевод:</label>
+                <textarea class="form-control" rows="5" id="translation" style="resize: none" ng-model="translations"></textarea>
+            </div>
+        </div>
+        <hr>
+        <div style="text-align: right">
+            <button type="button" class="btn btn-info" data-ng-click="saveWord(word,translations)">Запомнить</button>
+        </div>
+    </div>
+
+</div>
+

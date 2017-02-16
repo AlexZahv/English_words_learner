@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Words learner</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/wordslearner.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-route.min.js"></script>
+    <script src="wordsLearner.js"></script>
+    <script src="js/navigationController.js"></script>
+    <script src="js/playController.js"></script>
+    <script src="js/homeController.js"></script>
+    <script src="js/aboutController.js"></script>
+    <script src="js/learnController.js"></script>
+    <script src="js/repeatController.js"></script>
+</head>
+<body>
+<div id="words-learner" ng-app="wordsLearner">
+    <div class="container-fluid">
+        <nav class="navbar navbar-default" data-ng-controller="navigationController">
+            <div class="container">
+
+                <ul class="nav navbar-nav">
+                    <li data-ng-class="{'active':isActive('/home')}"><a href="#home">Главная</a></li>
+                    <li data-ng-class="{'active':isActive('/learn')}"><a href="#learn">Изучение</a></li>
+                    <li data-ng-class="{'active':isActive('/repeat')}"><a href="#repeat">Повторение</a></li>
+                    <li data-ng-class="{'active':isActive('/play')}"><a href="#play">Игра</a></li>
+                    <li data-ng-class="{'active':isActive('/about')}"><a href="#about">О сервисе</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="wordslearner-body">
+            <div data-ng-view="">
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
